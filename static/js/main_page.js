@@ -120,7 +120,7 @@ class MainPage extends Main{
     getAdverts() {
         if(user_id){
             this.ajaxRequest('/query/', {'endpoint': "rel_user_advert", 'all': false, 'filter': `user=${user_id}` })
-                .then(res => res.data.map(e => this.user_advert_arr.push(e.advert)))
+                .then(res => res.data.map(e => this.user_advert_arr.push(e.advert.id)))
                 .then(() => {
                     this.ajaxRequest('/query/', {'endpoint': "advert", 'all': true })
                         .then(res => this.buildList(res));

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from api.models import RelUserAdvert
-from api.serializers import UserSerializersForGet
+from api.serializers import UserSerializersForGet, AdvertForGetSerializers
 
 
 class RelUserAdvertSerializers(serializers.ModelSerializer):
@@ -11,6 +11,7 @@ class RelUserAdvertSerializers(serializers.ModelSerializer):
 
 class RelUserAdvertForGetSerializers(serializers.ModelSerializer):
     user = UserSerializersForGet(read_only=True)
+    advert = AdvertForGetSerializers(read_only=True)
 
     class Meta:
         model = RelUserAdvert

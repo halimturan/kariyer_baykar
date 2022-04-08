@@ -33,6 +33,7 @@ urlpatterns = [
     path('logout/', logout, name="logout"),
     path('ilanlarim/', my_advert, name="my_advert"),
     path('parola_degistir/', reset_password, name="reset_password"),
+    path('basvurularim/', my_recourse, name="my_recourse"),
     path('uye_profil/', user_profile, name="user_profile"),
     path('isveren_profil/', employer_profile, name="employer_profile"),
     path('api/api-token-auth/', CustomAuthToken.as_view(), name='api_token_auth'),

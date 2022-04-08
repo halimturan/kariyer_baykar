@@ -32,6 +32,10 @@ def reset_password(request):
     return render(request, 'reset_password.html')
 
 
+def my_recourse(request):
+    return render(request, 'my_recourse.html')
+
+
 def query(request):
     return JsonResponse(RequestParser(request).query(), safe=False)
 

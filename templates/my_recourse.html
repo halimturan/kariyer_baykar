@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}İlanlarım{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/recourse.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div id="snackbar_success">Some text some message..</div>
+    <div id="recourse-panel">
+        <div class="container d-flex page-title">
+            <span class="title">Başvurularım</span>
+        </div>
+    </div>
+    <div class="container mt-3">
+        <div class="recourse-title">Toplam <span id="recourse_count"></span> başvuru</div>
+        <hr>
+        <div id="recourse_list"></div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/recourse.js' %}"></script>
+{% endblock %}

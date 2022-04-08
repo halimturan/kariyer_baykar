@@ -1,0 +1,8 @@
+#recourse-panel{width: 100%; height: 115px; background: #36496b;}
+.page-title {justify-content: space-between; color: white; padding: 35px;}
+.page-title > .title {font-size: xx-large}
+#recourse_list {background: #f0f0f0;}
+.recourse-item {display: flex; padding: 20px; width: 100%;}
+.recourse-info {width: 88%; background: white; padding: 10px}
+.advert-title {display: block; font-size: larger; font-weight: 700;}
+.advert-city {display: block}
