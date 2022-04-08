@@ -1,5 +1,5 @@
 # Açıklamalar
-Kariyer Baykar uygulaması vaka analizine istinaden oluşturulmuş uygulamadır.
+Kariyer Baykar uygulaması, vaka analizine istinaden oluşturulmuş uygulamadır. Uygulamaya ait ekran görüntülerine "screenshots" klasöründen ulaşabilirsiniz.
 
 ### Gereksinimler
 

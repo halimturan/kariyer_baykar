@@ -61,7 +61,7 @@ class Advert extends Main {
     }
 
     getAdverts() {
-        this.ajaxRequest('/query/', {endpoint: 'advert', filter: `publisher=${user_id}`, all:true})
+        this.ajaxRequest('/query/', {endpoint: 'advert', filter: `publisher=${user_id}`, all:false})
             .then(res => {
                 this.data_arr = res.data;
                 const current_date = new Date();
