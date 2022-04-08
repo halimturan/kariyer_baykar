@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}İlanlarım{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/advert.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div id="snackbar_success">Some text some message..</div>
+    <div id="advert-panel">
+        <div class="container d-flex page-title">
+            <span class="title">İlanlarım</span>
+            <a id="add_advert_btn"><i class="fa fa-plus"></i> İlan Ekle</a>
+        </div>
+    </div>
+    <div class="container mt-3">
+        <div class="advert-title">Toplam <span id="advert_count"></span> ilan</div>
+        <hr>
+        <div id="advert_list"></div>
+    </div>
+
+    <!-- Create Modal -->
+        {% include 'modals/advert/create_advert.html' %}
+    <!-- /Create Modal -->
+
+    <!-- Detail Modal -->
+        {% include 'modals/main/advert_detail_modal.html' %}
+    <!-- /Detail Modal -->
+
+    <!-- User List -->
+        {% include 'modals/advert/user_list.html' %}
+    <!-- /User List -->
+
+    <!-- User Detail -->
+        {% include 'modals/advert/user_detail.html' %}
+    <!-- /User Detail -->
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/advert.js' %}"></script>
+{% endblock %}

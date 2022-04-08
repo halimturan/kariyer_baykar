@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}Anasayfa{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div id="snackbar_success">Some text some message..</div>
+    <div id="search-panel">
+        <div class="container">
+            <div id="search-input-wrapper">
+                <div>Toplam <span id="advert_count"></span> ilan</div>
+                <input type="text" id="advert_search_input" placeholder="İş ilanları arasında arama yapabilirsiniz">
+                <a id="search_btn"><i class="fa fa-search"></i></a>
+            </div>
+        </div>
+    </div>
+    <div id="advert_list_panel" class="container">
+        <div id="filter_panel">
+            <div class="filter-item">
+                <label for="position_level">Pozisyon Seviyesi:</label>
+                <select id="position_level">
+                    <option value="">Seçiniz</option>
+                    <option value="Engelli">Engelli</option>
+                    <option value="Uzman">Uzman</option>
+                    <option value="Yeni Mezun">Yeni Mezun</option>
+                    <option value="Yönetici">Yönetici</option>
+                </select>
+            </div>
+            <div class="filter-item">
+                <label for="working_type">Çalışma Tipi:</label>
+                <select id="working_type">
+                    <option value="">Seçiniz</option>
+                    <option value="Hibrit">Hibrit</option>
+                    <option value="İş Yerinde">İş Yerinde</option>
+                    <option value="Uzaktan">Uzaktan</option>
+                </select>
+            </div>
+            <div class="filter-item">
+                <label for="city">Şehir:</label>
+                <input type="text" id="city">
+            </div>
+            <div class="filter-item">
+                <a id="reset-filter">Sıfırla</a>
+            </div>
+            <div class="filter-item">
+                <a id="filter_btn">Uygula</a>
+            </div>
+        </div>
+        <div id="list_panel"></div>
+    </div>
+    <!-- Detail Modal -->
+    {% include 'modals/main/advert_detail_modal.html' %}
+    <!-- /Detail Modal -->
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/main_page.js' %}"></script>
+{% endblock %}

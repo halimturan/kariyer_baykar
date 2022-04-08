@@ -1,0 +1,92 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}Kullanıcı Profili{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'css/user_profile.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div id="snackbar_success">Some text some message..</div>
+    <div id="user-panel">
+        <div class="container d-flex">
+            <div id="user-img-wrapper">
+                {% if request.session.user.photo %}
+                    <img src="{{ request.session.user.photo }}" class="user-profile-img" alt="user_img">
+                {% else %}
+                    <img src="{% static 'img/account.png' %}" class="user-profile-img" alt="user_img">
+                {% endif %}
+            </div>
+            <div id="user-info-wrapper">
+                <span id="user_name">{{ request.session.user.full_name }}</span>
+                <div id="user_title_wrapper"><span id="user_title"></span></div>
+            </div>
+            <a id="edit_user_info"><i class="fa fa-pencil"></i></a>
+        </div>
+        <div id="user_summary" class="mt-2 mb-3"></div>
+        <div class="container mt-3">
+            <!-- user education -->
+            <div id="user_education">
+                <div class="profile-title-wrapper mt-3">
+                    <span class="profile-title"><i class="fa fa-graduation-cap"></i> Eğitim</span>
+                    <a class="add-btn" id="add_education_btn"><i class="fa fa-plus"></i></a>
+                </div>
+                <hr>
+                <div id="education_body"></div>
+            </div>
+            <!-- user experience -->
+            <div id="user_experience">
+                <div class="profile-title-wrapper mt-3">
+                    <span class="profile-title"><i class="fa fa-briefcase"></i> Deneyim</span>
+                    <a class="add-btn" id="add_experience_btn"><i class="fa fa-plus"></i></a>
+                </div>
+                <hr>
+                <div id="experience_body"></div>
+            </div>
+            <!-- user ability -->
+            <div id="user_experience">
+                <div class="profile-title-wrapper mt-3">
+                    <span class="profile-title"><i class="fa fa-code"></i> Yetenek ve Beceri</span>
+                    <a class="add-btn" id="add_experience_btn"><i class="fa fa-plus"></i></a>
+                </div>
+                <hr>
+                <div id="ability_body"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Edit Education Modal -->
+    {% include 'modals/user_profile/update_education.html' %}
+    <!-- /Edit Education Modal -->
+
+    <!-- Create Education Modal -->
+    {% include 'modals/user_profile/create_education.html' %}
+    <!-- /Create Education Modal -->
+
+    <!-- Create Experience Modal -->
+    {% include 'modals/user_profile/create_experience.html' %}
+    <!-- /Create Experience Modal -->
+
+    <!-- Edit User Info Modal -->
+    {% include 'modals/user_profile/update_user_info.html' %}
+    <!-- /Edit User Info Modal -->
+
+    <div id="id01" class="modal-delete">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+      <form class="modal-delete-content">
+        <div class="container">
+          <h1>Kayıt Silme</h1>
+          <p>Seçilen kaydı silmek istediğinizden emin misiniz?</p>
+
+          <div class="clearfix">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Kapat</button>
+            <button type="button" id="delete_btn" onclick="user_profile.deleteRecord(this.dataset.id, this.dataset.endpoint)" class="deletebtn">Sil</button>
+          </div>
+        </div>
+      </form>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/user_profile.js' %}"></script>
+{% endblock %}

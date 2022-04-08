@@ -1,0 +1,39 @@
+#advert_detail_modal {display: none}
+#search-panel{width: 100%; height: 175px; background: #36496b;}
+#search-input-wrapper {margin: 30px 0 0 20px; width: 88%; position: absolute;}
+#search-input-wrapper input {height: 39px; width: 95%; border: none; border-radius: 5px;}
+#search-input-wrapper i {position: absolute; margin-top: 9px; font-size: x-large; color: #6c6c6c;}
+#search-input-wrapper div {color: white; display: block; font-size: x-large; margin-bottom: 10px}
+#search-input-wrapper a {color: white; font-size: larger; cursor: pointer;}
+.filter-item {display: grid; padding: 5px}
+.filter-item > select, .filter-item > input[type="text"] {height: 40px; border: 1px solid #ccc; border-radius: 5px;}
+#filter_panel{width: 20%; -webkit-box-shadow: 0 3px 24px 6px rgba(0,0,0,0.05); box-shadow: 0 3px 24px 6px rgba(0,0,0,0.05); padding: 10px; background: #f0f0f0;}
+#list_panel {width: 80%; -webkit-box-shadow: 0 3px 24px 6px rgba(0,0,0,0.05); box-shadow: 0 3px 24px 6px rgba(0,0,0,0.05); padding: 20px; margin-left: 2rem; background: #f0f0f0;}
+#advert_list_panel {display: flex; margin-top: 2rem}
+#filter_btn {color: white; background: #37496a; padding: 10px; text-align: center;}
+#filter_btn:hover {cursor: pointer; background: #48608b}
+.list-item { display: flex; margin: 15px; background: white;}
+.item-body {padding: 10px; width: 50%}
+.item-city{display: block}
+.item-title {font-size: larger; font-weight: 600;}
+.item-date{float: right}
+.item-actions {width: 50%; padding: 23px}
+#detail_advert {color: white; background: #117999; float: right; padding: 10px; margin: 5px;}
+#detail_advert:hover{cursor: pointer; background: #116078}
+#apply_advert {float: right; background: #3e983e; color: white; padding: 10px; margin: 5px;}
+#apply_advert:hover {background: #448344; cursor: pointer}
+.company-info {padding: 15px}
+.company-name {font-size: x-large; font-weight: 600;}
+.company-description {display: block}
+.detail-advert-title {font-size: larger; font-weight: 600;}
+#reset-filter {text-align: center; color: #429ae6; cursor: pointer; margin: 5px 0 5px 0;}
+#search_btn {margin-left: -30px}
+.advert-detail {display: grid}
+.detail-advert-description {display: block}
+.applied-text {float: right; margin: 14px;}
+@media (min-width: 400px) {
+    #search-input-wrapper input {width: 45%}
+}
+@media (max-width: 400px) {
+    #search-input-wrapper a {display: none}
+}

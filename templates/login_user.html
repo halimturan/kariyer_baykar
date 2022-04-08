@@ -1,0 +1,113 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}Üye Girişi{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div id="snackbar_success">Some text some message..</div>
+    <div class="row mt-3">
+        <!-- login -->
+        <div class="col-md-6 col-xs-12 mt-3">
+            <div class="card" style="height: 470px">
+                <div class="card-title">
+                    Giriş Formu
+                </div>
+                <div class="card-body container" style="margin-top: 100px">
+                    <form id="user_login_form">
+                        <!-- Email -->
+                        <div class="form-item row">
+                            <div class="col-md-3 col-xs-3">
+                                <label for="login_username">Kullanıcı Adı:</label>
+                            </div>
+                            <div class="col-md-9 col-xs-9">
+                                <input type="text" name="username" id="login_username" required>
+                            </div>
+                        </div>
+                        <!-- Password -->
+                        <div class="form-item row mt-3">
+                            <div class="col-md-3 col-xs-3">
+                                <label for="login_password">Parola:</label>
+                            </div>
+                            <div class="col-md-9 col-xs-9">
+                                <input type="password" name="password" id="login_password" required>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <button type="submit" class="btn primary-btn m-auto">Giriş Yap</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /login -->
+
+        <!-- sign in -->
+        <div class="col-md-6 col-xs-12 mt-3">
+            <div class="card">
+                <div class="card-title">
+                    Üye Formu
+                </div>
+                <div class="card-body container">
+                    <form id="user_signup_form">
+                        {% csrf_token %}
+                        <!-- Name -->
+                        <div class="form-item row">
+                            <div class="col-md-3 col-xs-3">
+                                <label for="signup_user_nmme">Ad:</label>
+                            </div>
+                            <div class="col-md-9 col-xs-9">
+                                <input type="text" name="first_name" id="signup_user_nmme" required>
+                            </div>
+                        </div>
+                        <!-- Surname -->
+                        <div class="form-item row mt-3">
+                            <div class="col-md-3 col-xs-3">
+                                <label for="signup_user_surname">Soyad:</label>
+                            </div>
+                            <div class="col-md-9 col-xs-9">
+                                <input type="text" name="last_name" id="signup_user_surname" required>
+                            </div>
+                        </div>
+                        <!-- Email -->
+                        <div class="form-item row mt-3">
+                            <div class="col-md-3 col-xs-3">
+                                <label for="signup_user_email">Email:</label>
+                            </div>
+                            <div class="col-md-9 col-xs-9">
+                                <input type="text" name="email" id="signup_user_email" required>
+                            </div>
+                        </div>
+                        <!-- Username -->
+                        <div class="form-item row mt-3">
+                            <div class="col-md-3 col-xs-3">
+                                <label for="signup_username">Kullanıcı Adı:</label>
+                            </div>
+                            <div class="col-md-9 col-xs-9">
+                                <input type="text" name="username" id="signup_username" required>
+                            </div>
+                        </div>
+                        <!-- Password -->
+                        <div class="form-item row mt-3">
+                            <div class="col-md-3 col-xs-3">
+                                <label for="signup_user_password">Parola:</label>
+                            </div>
+                            <div class="col-md-9 col-xs-9">
+                                <input type="password" name="password" id="signup_user_password" required>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <button type="submit" class="btn primary-btn m-auto">Üye Ol</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /sign in -->
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/login_user.js' %}"></script>
+{% endblock %}

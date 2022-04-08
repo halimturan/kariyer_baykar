@@ -1,0 +1,65 @@
+<div id="edit_user_info_modal" class="modal">
+    <div class="modal-header">
+        Bilgileri Düzenle
+        <a class="float-right close-modal-btn cursor-pointer"><i class="fa fa-times"></i></a>
+    </div>
+    <!-- modal-body -->
+    <div class="modal-body container">
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="form-item row mt-3">
+                    <div class="col-md-3 col-xs-3">
+                        <label for="update_user_first_name">Ad:</label>
+                    </div>
+                    <div class="col-md-9 col-xs-9">
+                        <input type="text" name="first_name" id="update_user_first_name" required>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <div class="form-item row mt-3">
+                    <div class="col-md-3 col-xs-3">
+                        <label for="update_user_last_name">Soyad:</label>
+                    </div>
+                    <div class="col-md-9 col-xs-9">
+                        <input type="text" name="last_name" id="update_user_last_name" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="form-item row mt-3">
+                    <div class="col-md-3 col-xs-3">
+                        <label for="update_user_title">Ünvan:</label>
+                    </div>
+                    <div class="col-md-9 col-xs-9">
+                        <input type="text" name="title" id="update_user_title" required>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <div class="form-item row mt-3">
+                    <div class="col-md-3 col-xs-3">
+                        <label for="update_user_photo">Fotoğraf:</label>
+                    </div>
+                    <div class="col-md-9 col-xs-9">
+                        <input type="file" id="update_user_photo" name="photo">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+             <div class="col-md-3 col-xs-3">
+                <label for="update_user_summary">Özet:</label>
+            </div>
+            <div class="col-md-9 col-xs-9">
+                <textarea id="update_user_summary" rows="10" cols="100" name="summary"></textarea>
+            </div>
+        </div>
+        <div class="row mt-3 mb-3 float-right">
+            <a class="primary-btn-outline close-modal-btn">Kapat</a>
+            <a class="primary-btn ml-1" id="update_user_info_btn">Kaydet</a>
+        </div>
+    </div>
+</div>

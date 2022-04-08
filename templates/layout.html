@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kariyer Baykar | {% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="dark">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+    <!-- core css -->
+    <link rel="stylesheet" href="{% static 'css/core.css' %}">
+    <!-- external css -->
+    {% block stylesheet %}
+    {% endblock %}
+</head>
+<body>
+    <div class="navbar navbar-primary">
+        <div class="container d-flex d-space-between">
+            <a class="navbar-brand" href="{% url 'main' %}">
+                <b>KARİYER BAYKAR</b>
+            </a>
+            <div class="navbar-actions">
+                {% if request.session.user.status == "member" %}
+                    <div id="navbar-profile-banner" onclick="main.userDropdown()">
+                        {% if request.session.user.photo %}
+                            <img src="{{ request.session.user.photo }}" class="navbar-user-img" alt="user_img">
+                        {% else %}
+                            <img src="{% static 'img/account.png' %}" class="navbar-user-img" alt="user_img">
+                        {% endif %}
+                        <div id="profile-name">
+                            {{ request.session.user.full_name }}
+                        </div>
+                        <i class="fa fa-caret-down"></i>
+                        <div id="user_dropdown" class="dropdown-content">
+                            <a href="{% url 'user_profile' %}"><i class="fa fa-user"></i> Profilim</a>
+                            <a href="{% url 'reset_password' %}"><i class="fa fa-key"></i> Parola Değiştir</a>
+                            <a href="#about"><i class="fa fa-list"></i> Başvurularım</a>
+                            <a href="{% url 'logout' %}"><i class="fa fa-right-from-bracket"></i> Çıkış Yap</a>
+                        </div>
+                    </div>
+                {% elif request.session.user.status == "employer" %}
+                    <a class="btn primary-btn" href="{% url 'my_advert' %}"><i class="fa fa-file"></i> <span class="d-md">İlan Yayınla</span></a>
+                    <div id="navbar-profile-banner" onclick="main.userDropdown()">
+                        {% if request.session.user.photo %}
+                            <img src="{{ request.session.user.photo }}" class="navbar-user-img" alt="user_img">
+                        {% else %}
+                            <img src="{% static 'img/account.png' %}" class="navbar-user-img" alt="user_img">
+                        {% endif %}
+                        <div id="profile-name">
+                            {{ request.session.user.full_name }}
+                        </div>
+                        <i class="fa fa-caret-down"></i>
+                        <div id="user_dropdown" class="dropdown-content">
+                            <a href="{% url 'user_profile' %}"><i class="fa fa-user"></i> Profilim</a>
+                            <a href="{% url 'reset_password' %}"><i class="fa fa-key"></i> Parola Değiştir</a>
+                            <a href="{% url 'my_advert' %}"><i class="fa fa-list"></i> İlanlarım</a>
+                            <a href="{% url 'logout' %}"><i class="fa fa-right-from-bracket"></i> Çıkış Yap</a>
+                        </div>
+                    </div>
+                {% else %}
+                <a class="btn primary-btn-outline" href="{% url 'user_login' %}"><i class="fa fa-user"></i> <span class="d-md">Üye Girişi</span></a>
+                <a class="btn primary-btn ml-1" href="{% url 'employer_login' %}"><i class="fa fa-briefcase"></i> <span class="d-md">İşveren Girişi</span></a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Body -->
+    {% block content %}
+    {% endblock %}
+    <!-- /Content Body -->
+
+    <!-- scripts -->
+    <script>
+        const token = {'X-CSRFToken': '{{ csrf_token }}'};
+        let user_status;
+        let user_id;
+        {% if request.session.user %}
+            user_id = "{{ request.session.user.id }}";
+            user_status = "{{ request.session.user.status }}";
+        {% endif %}
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block scripts %}
+    {% endblock %}
+    <!-- /scripts -->
+</body>
+</html>
